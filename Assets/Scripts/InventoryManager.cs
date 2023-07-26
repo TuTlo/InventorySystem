@@ -15,29 +15,31 @@ public class InventoryManager : MonoBehaviour
     /// <summary>
     /// SerializableMap for Inventory Map
     /// </summary>
-    [Serializable]
-    public class StringIntMap : SerializableMap<string, int>
-    {
-        public StringIntMap() : base() { }
-        public StringIntMap(StringIntMap map) : base(map) { }
-    }
+    // TODO to be completed 
+    // [Serializable]
+    // public class StringIntMap : SerializableMap<string, int>
+    // {
+    //     public StringIntMap() : base() { }
+    // }
 
     /// <summary>
     /// local GameState save to each slot
     /// </summary>
-    [Serializable]
-    public class GameState
-    {
-        public StringIntMap PlayerBag = new StringIntMap();
-        public StringIntMap PlayerWallet = new StringIntMap();
-        public StringIntMap FightBag = new StringIntMap();
-    }
+
+    // TODO to be completed on how to save scene    
+    // [Serializable]
+    // public class GameState
+    // {
+    //     public StringIntMap PlayerBag = new StringIntMap();
+    //     public StringIntMap PlayerWallet = new StringIntMap();
+    //     public StringIntMap FightBag = new StringIntMap();
+    // }
 
 
 
-    public static StringIntMap playerBag;
-    public static StringIntMap playerWallet;
-    public static StringIntMap fightBag;
+    public static Dictionary<string, int> playerBag;
+    public static Dictionary<string, int> playerWallet;
+    public static Dictionary<string, int> fightBag;
 
     public Inventory AllItemInventory;
     public GiftManager GiftPanel;
@@ -71,9 +73,9 @@ public class InventoryManager : MonoBehaviour
 
         instance = this;
 
-        playerBag = new StringIntMap();
-        playerWallet = new StringIntMap();
-        fightBag = new StringIntMap();
+        playerBag = new Dictionary<string, int>();
+        playerWallet = new Dictionary<string, int>();
+        fightBag = new Dictionary<string, int>();
         playerWallet.Add("灵币", 0);
         playerWallet.Add("魂晶", 0);
 
@@ -212,7 +214,7 @@ public class InventoryManager : MonoBehaviour
     }
 
 
-    public void Display(StringIntMap showBag)
+    public void Display(Dictionary<string, int> showBag)
     {
         ShowWallet();
 
@@ -251,7 +253,7 @@ public class InventoryManager : MonoBehaviour
     }
 
 
-    public void Display(StringIntMap showBag, GameObject slotGrid, int gridCount)
+    public void Display(Dictionary<string, int> showBag, GameObject slotGrid, int gridCount)
     {
         ShowWallet();
 
